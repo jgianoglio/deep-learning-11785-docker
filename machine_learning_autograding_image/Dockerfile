@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
   gfortran \
   git \
   wget \
-  cmake \
   curl \
   pkg-config \
   python3 \
@@ -37,6 +36,12 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --upgrade six
 RUN pip3 install pyOpenSSL ndg-httpsclient pyasn1
 
+# cmake
+WORKDIR /tmp
+RUN wget http://www.cmake.org/files/v3.10/cmake-3.10.0.tar.gz
+RUN tar xf cmake-3.10.0.tar.gz
+RUN cd cmake-3.10.0 && ./configure && make && make install
+
 # Tensorflow
 RUN pip3 install \
         Pillow \
@@ -52,7 +57,7 @@ RUN pip3 install tensorflow
 
 # Pytorch
 WORKDIR /tmp
-#RUN pip install http://download.pytorch.org/whl/cu75/torch-0.2.0.post3-cp27-cp27mu-manylinux1_x86_64.whl
+RUN pip3 install pyyaml mkl setuptools cmake cffi
 RUN git clone --recursive https://github.com/pytorch/pytorch.git && cd pytorch && python3 setup.py install
 RUN pip3 install --no-deps torchvision
 RUN rm -Rf pytorch
