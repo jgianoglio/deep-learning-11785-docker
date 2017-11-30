@@ -7,7 +7,7 @@
 FROM bstriner/deep-learning-11785-docker:autograding_image
 MAINTAINER Benjamin Striner <bstriner@gmail.com>
 
-# Theano
+# Python3
 RUN apt-get update --fix-missing
 RUN apt-get install -y gcc
 RUN apt-get install -y make
@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
   gfortran \
   git \
   wget \
+  cmake \
   curl \
   pkg-config \
   python3 \
@@ -43,9 +44,7 @@ RUN pip3 install \
         ipykernel \
         jupyter \
         matplotlib \
-        numpy \
         pandas \
-        scipy \
         sklearn \
         && \
     python3 -m ipykernel.kernelspec
