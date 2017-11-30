@@ -4,7 +4,7 @@
 # https://github.com/pytorch/pytorch/blob/master/Dockerfile
 # Autolab - autograding docker image for machine learning
 
-FROM bstriner/deep-learning-11785:autograding_image
+FROM bstriner/deep-learning-11785-docker:autograding_image
 MAINTAINER Benjamin Striner <bstriner@gmail.com>
 
 # Theano
