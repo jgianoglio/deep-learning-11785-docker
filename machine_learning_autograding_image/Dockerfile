@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y \
   python3-numpy \
   python3-scipy
 RUN pip3 install --upgrade pip
-RUN pip3 install --upgrade six
 RUN pip3 install pyOpenSSL ndg-httpsclient pyasn1
 
 # cmake
