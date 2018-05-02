@@ -50,6 +50,7 @@ RUN pip3 install \
         jupyter \
         matplotlib \
         pandas \
+        lxml
         sklearn \
         && \
     python3 -m ipykernel.kernelspec
